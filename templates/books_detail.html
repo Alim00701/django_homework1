@@ -13,7 +13,7 @@
 <div>
     <h2>Comments:</h2>
     <ul>
-        {% for i in book.books_comments.all %}
+        {% for i in comment %}
         <li>
             <p>{{ i.text }}</p>
             <p>{{ i.created_date }}</p>

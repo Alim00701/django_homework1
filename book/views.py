@@ -10,4 +10,5 @@ def get_books_all(request):
 
 def get_books_detail(request, id):
     book = get_object_or_404(models.Books, id=id)
-    return render(request, "books_detail.html", {"book": book})
+    comment_id = models.BookComments.objects.filter(books_id=id)
+    return render(request, "books_detail.html", {"book": book,'comment':comment_id})
