@@ -1,14 +1,57 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add books</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css/' %}" />
 </head>
 <body>
-<form action="/add-books/" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Add" />
-</form>
+<style>
+    body {
+        background-color: #00DBDE;
+        background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    }
+    .form_add_books {
+        margin-top: 20px;
+        border-radius: 160px;
+        border: none
+    }
+    .container__add__book {
+        margin-top: 40px;
+        justify-content: center;
+        display: flex;
+    }
+    .button__add {
+        margin-top: 20px;
+    }
+</style>
+<div class="container button__add">
+     <button type="button" class="btn btn-secondary"><a href="/books/">←Books</a></button>
+</div>
+<div class="container container__add__book">
+    <div class="mb-3">
+        <div class="row gy-6">
+            <form action="" method="POST" enctype="multipart/form-data">
+                <h2>This is form for adding to our list of books: </h2>
+            {% csrf_token %}
+                <div class="col-6"><
+                    <label for="exampleFormControlInput1" class="form-label form_add_books">{{ form.as_p }}</label>
+                    <input type="submit" class="form-control" id="exampleFormControlInput1" value="Add">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--<div class="mb-3">-->
+<!--  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>-->
+<!--  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
+<!--</div>-->
+
+<!--<form action="/add-books/" method="POST" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <input type="submit" value="Add" />-->
+<!--</form>-->
 </body>
 </html>
