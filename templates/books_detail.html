@@ -33,17 +33,17 @@
     </style>
     <div class="container book__detail__container">
         <div class="card">
-            <img src="{{ book.image.url }}" class="card-img-top book__detail__image" alt="...">
+            <img src="{{ object.image.url }}" class="card-img-top book__detail__image" alt="...">
             <div class="card-body body__detail">
-                <h2 class="card-title">{{ book.title }}</h2>
-                <p class="card-text body__text">{{ book.description }}</p>
-                <p class="card-text body__text">{{ book.created_date }}</p>
-                <p class="card-text body__text">{{ book.update_date }}</p>
+                <h2 class="card-title">{{ object.title }}</h2>
+                <p class="card-text body__text">{{ object.description }}</p>
+                <p class="card-text body__text">{{ object.created_date }}</p>
+                <p class="card-text body__text">{{ object.update_date }}</p>
             </div>
             <div class="card-body">
                 <h2>Comments:</h2>
                 <ul>
-                    {% for i in comment %}
+                    {% for i in object.books_comment.all %}
                     <li>
                         <p>{{ i.text }}</p>
                         <p>{{ i.created_date }}</p>
@@ -52,8 +52,8 @@
                 </ul>
             </div>
             <div>
-                <button type="button" class="btn btn-secondary"><a href="/books/{{ book.id }}/update/">Change</a></button>
-                <button type="button" class="btn btn-secondary"><a href="/books/{{ book.id }}/delete/">Delete</a></button>
+                <button type="button" class="btn btn-secondary"><a href="/books/{{ object.id }}/update/">Change</a></button>
+                <button type="button" class="btn btn-secondary"><a href="/books/{{ object.id }}/delete/">Delete</a></button>
             </div>
         </div>
     </div>
