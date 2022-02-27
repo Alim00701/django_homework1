@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from django.views.decorators.csrf import csrf_exempt
 
 HOST = "https://rezka.ag"
-URL = "https://rezka.ag"
+URL_FILM = "https://rezka.ag/films"
 
 HEADERS = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
@@ -35,11 +35,11 @@ def get_data(html):
 
 @csrf_exempt
 def parser_func():
-    html = get_html(URL)
+    html = get_html(URL_FILM)
     if html.status_code == 200:
         film = []
         for page in range(0, 1):
-            html = get_html(URL, params={'page': page})
+            html = get_html(URL_FILM, params={'page': page})
             film.extend(get_data(html.text))
             return film
     else:
