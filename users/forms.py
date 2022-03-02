@@ -10,7 +10,7 @@ class RegistrationForm(UserCreationForm):
     GENDER_TYPE = (
         (MALE, "Male"),
         (FEMALE, "Female"),
-        (OTHER, "OTHER")
+        (OTHER, "Other")
     )
     OCUP_CHOICE = (
         ("STUDENT", "STUDENT"),
@@ -20,15 +20,8 @@ class RegistrationForm(UserCreationForm):
         ("MILLIONAIRE", "MILLIONAIRE")
     )
     email = forms.EmailField(required=True)
-    phone_number = forms.CharField(required=True)
-    age = forms.IntegerField(required=True)
     gender = forms.ChoiceField(choices=GENDER_TYPE, required=True)
     occupation = forms.ChoiceField(choices=OCUP_CHOICE, required=True)
-    best_friend_name = forms.CharField(required=True)
-    place_of_residence = forms.CharField(required=True)
-    mothers_maiden_name = forms.CharField(required=True)
-    favorite_song = forms.CharField(required=True)
-    first_book = forms.CharField(required=True)
 
     class Meta:
         model = models.CustomUser
@@ -71,12 +64,33 @@ class LoginForm(AuthenticationForm):
             }
         )
     )
+
     password = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
                 "class": "form-control",
                 "placeholder": "type password",
                 "id": "password"
+            }
+        )
+    )
+
+    email = forms.EmailField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "email",
+                "id": "email"
+            }
+        )
+    )
+
+    phone_number = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "phone_number",
+                "id": "phone_number"
             }
         )
     )

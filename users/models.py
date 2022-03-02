@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import CharField
 
 
 class CustomUser(User):
@@ -9,7 +10,7 @@ class CustomUser(User):
     GENDER_TYPE = (
         (MALE, "Male"),
         (FEMALE, "Female"),
-        (OTHER, "OTHER")
+        (OTHER, "Other")
     )
     OCUP_CHOICE = (
         ("STUDENT", "STUDENT"),
@@ -22,8 +23,8 @@ class CustomUser(User):
     gender = models.IntegerField(choices=GENDER_TYPE, verbose_name="Гендер")
     age = models.IntegerField()
     occupation = models.CharField(choices=OCUP_CHOICE, max_length=80)
-    mothers_maiden_name = models.CharField("mothers_maiden_name", max_length=60)
-    best_friend_name = models.CharField("best_friend_name", max_length=50)
-    place_of_residence = models.CharField("place_of_residence", max_length=30)
-    favorite_song = models.CharField("favorite_song", max_length=50)
-    first_book = models.CharField("first_book", max_length=45)
+    mothers_maiden_name = models.CharField(max_length=60)
+    best_friend_name = models.CharField(max_length=70)
+    place_of_residence = models.CharField(max_length=30)
+    favorite_song = models.CharField(max_length=50)
+    first_book = models.CharField(max_length=45)
