@@ -30,12 +30,12 @@ class BookComments(models.Model):
 
 
 class Book_shop(models.Model):
-    title = models.CharField(max_length=64)
+    title = models.CharField(max_length=80)
     description = models.TextField()
     image = models.ImageField(upload_to='')
     created_date = models.DateField(auto_now_add=True, null=True)
     update_date = models.DateField(auto_now=True, null=True)
-    author = models.CharField(max_length=48)
+    author = models.CharField(max_length=70)
 
 
 class BookFeedback(models.Model):
