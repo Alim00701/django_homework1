@@ -2,7 +2,7 @@ from django import forms
 from . import models
 
 
-class Books_all(forms.ModelForm):
+class BookShowForm(forms.ModelForm):
     class Meta:
-        model = models.Books
+        model = models.Book_shop
         fields = "__all__"
